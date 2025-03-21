@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="css/whatsapp-button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/certificados.css">
 </head>
 <body>
@@ -229,5 +230,33 @@
     <script src="js/main.js"></script>
     <script src="js/contact-form.js"></script>
     <script src="js/certificates.js"></script>
+    
+    <script>
+    // Asegurar que el menú móvil funcione correctamente en la página de certificados
+    document.addEventListener('DOMContentLoaded', function() {
+        // Verificar si ya existe la funcionalidad en main.js
+        if (!window.menuInitialized) {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            // Menú móvil toggle si no está inicializado en main.js
+            if (menuBtn && !menuBtn.hasListeners) {
+                let menuOpen = false;
+                menuBtn.addEventListener('click', () => {
+                    if (!menuOpen) {
+                        menuBtn.classList.add('open');
+                        navLinks.classList.add('active');
+                        menuOpen = true;
+                    } else {
+                        menuBtn.classList.remove('open');
+                        navLinks.classList.remove('active');
+                        menuOpen = false;
+                    }
+                });
+                menuBtn.hasListeners = true;
+            }
+        }
+    });
+    </script>
 </body>
 </html>

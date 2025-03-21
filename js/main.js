@@ -30,6 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Cerrar menú al hacer clic en cualquier parte de la página
+    document.addEventListener('click', (e) => {
+        if (menuOpen && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            menuBtn.classList.remove('open');
+            navLinks.classList.remove('active');
+            menuOpen = false;
+        }
+    })
+    
     // Cerrar menú al hacer clic en un enlace (en móvil)
     const navItems = document.querySelectorAll('.nav-links a');
     navItems.forEach(item => {

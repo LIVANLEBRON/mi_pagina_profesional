@@ -209,6 +209,19 @@ nav {
     transform: translateY(8px);
 }
 
+/* Animación del botón hamburguesa cuando está abierto */
+.menu-btn.open .menu-btn__burger {
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg);
+}
+
 /* Sección Hero */
 .hero {
     height: 100vh;
