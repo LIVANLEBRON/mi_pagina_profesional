@@ -1,0 +1,93 @@
+/* Estilos para las insignias tecnológicas */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background: linear-gradient(135deg, var(--primary-color), #2980b9);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tech-badge i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.tech-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Colores específicos para cada tecnología */
+.tech-badge:nth-child(1) {
+    background: linear-gradient(135deg, #E44D26, #F16529);
+}
+
+.tech-badge:nth-child(2) {
+    background: linear-gradient(135deg, #264DE4, #2965F1);
+}
+
+.tech-badge:nth-child(3) {
+    background: linear-gradient(135deg, #F7DF1E, #D4BE0B);
+    color: #000;
+}
+
+.tech-badge:nth-child(4) {
+    background: linear-gradient(135deg, #306998, #FFD43B);
+}
+
+.tech-badge:nth-child(5) {
+    background: linear-gradient(135deg, #5382A1, #F89820);
+}
+
+.tech-badge:nth-child(6) {
+    background: linear-gradient(135deg, #00618A, #4479A1);
+}
+
+/* Animación para las insignias */
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tech-badge {
+    animation: badgePulse 2s infinite;
+    animation-delay: calc(var(--i, 0) * 0.2s);
+}
+
+.tech-badge:nth-child(1) { --i: 1; }
+.tech-badge:nth-child(2) { --i: 2; }
+.tech-badge:nth-child(3) { --i: 3; }
+.tech-badge:nth-child(4) { --i: 4; }
+.tech-badge:nth-child(5) { --i: 5; }
+.tech-badge:nth-child(6) { --i: 6; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tech-stack {
+        justify-content: center;
+    }
+    
+    .tech-badge {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}

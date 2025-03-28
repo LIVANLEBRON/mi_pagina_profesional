@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
     const contactForm = document.getElementById('contactForm');
+    const aboutSection = document.getElementById('sobre-mi');
+    const aboutText = document.querySelector('.about-text');
+    const aboutImage = document.querySelector('.about-image');
+    const techBadges = document.querySelectorAll('.tech-badge');
     
     // Inicializar AOS (si se implementa)
     if (typeof AOS !== 'undefined') {
@@ -97,6 +101,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Si es la sección de estadísticas, iniciar animación de números
                 if (entry.target.id === 'statistics') {
                     animateNumbers();
+                }
+                
+                // Animaciones para la sección Sobre Mí
+                if (entry.target.id === 'sobre-mi') {
+                    // Animar elementos de texto
+                    const paragraphs = entry.target.querySelectorAll('.about-text p');
+                    paragraphs.forEach((p, index) => {
+                        setTimeout(() => {
+                            p.classList.add('animate-fadeInLeft');
+                        }, index * 200);
+                    });
+                    
+                    // Animar imagen
+                    const image = entry.target.querySelector('.about-image');
+                    setTimeout(() => {
+                        image.classList.add('animate-fadeInRight');
+                    }, 300);
+                    
+                    // Animar insignias tecnológicas
+                    const badges = entry.target.querySelectorAll('.tech-badge');
+                    badges.forEach((badge, index) => {
+                        setTimeout(() => {
+                            badge.classList.add('animate-fadeInUp');
+                        }, 600 + (index * 100));
+                    });
+                    
+                    // Animar información personal
+                    const infoItems = entry.target.querySelectorAll('.info-item');
+                    infoItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animate-fadeInUp');
+                        }, 1000 + (index * 150));
+                    });
                 }
                 
                 observer.unobserve(entry.target);
